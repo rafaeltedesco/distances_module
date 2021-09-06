@@ -1,23 +1,25 @@
-from typing import List
+from typing import Union, List, TypeVar
+
+TNum = TypeVar('TNum', int, float)
+TList = TypeVar('TList', int, float, str)
 
 
 class Distance:
 
-    def __init__(self, pt1: List[int], pt2: List[int]):
-        self.pt1 = pt1
-        self.pt2 = pt2
-
-    def euclidean_distance(self):
-        distance = sum([((self.pt1[i] - self.pt2[i]) ** 2)
-                       for i in range(len(self.pt1))])
+    @staticmethod
+    def euclidean_distance(pt1: List[TNum], pt2: List[TNum]):
+        distance = sum([((pt1[i] - pt2[i]) ** 2)
+                       for i in range(len(pt1))])
         return distance ** 0.5
 
-    def manhattan_distance(self):
-        distance = sum([abs((self.pt1[i] - self.pt2[i]))
-                       for i in range(len(self.pt1))])
+    @staticmethod
+    def manhattan_distance(pt1: List[TNum], pt2: List[TNum]):
+        distance = sum([abs((pt1[i] - pt2[i]))
+                       for i in range(len(pt1))])
         return distance
 
-    def hamming_distance(self):
-        distance = sum([1 if (self.pt1[i] != self.pt2[i])
-                       else 0 for i in range(len(self.pt1))])
+    @staticmethod
+    def hamming_distance(pt1: List[TList], pt2: List[TList]):
+        distance = sum([1 if (pt1[i] != pt2[i])
+                       else 0 for i in range(len(pt1))])
         return distance
