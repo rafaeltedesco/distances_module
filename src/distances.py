@@ -23,3 +23,9 @@ class Distance:
         distance = sum([1 if (pt1[i] != pt2[i])
                        else 0 for i in range(len(pt1))])
         return distance
+
+    @staticmethod
+    def hamming_distance_percentage(pt1: List[TList], pt2: List[TList]):
+        distance = sum(
+            [1 if (pt1[i] != pt2[i]) else 0 for i in range(len(pt1))])
+        return distance / len(pt1)

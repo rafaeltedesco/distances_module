@@ -10,7 +10,10 @@ if __name__ == '__main__':
     euclidean = Distance.euclidean_distance(points_1_int, points_2_int)
     manhattan = Distance.manhattan_distance(points_1_int, points_2_int)
     hamming = Distance.hamming_distance(points_1_str, points_2_str)
+    hamming_percentage = Distance.hamming_distance_percentage(
+        points_1_str, points_2_str)
 
     print(f'Euclidean Distance', euclidean)
     print(f'Manhattan Distance', manhattan)
     print(f'Hamming Distance', hamming)
+    print(f'Hamming Distance %', hamming_percentage)
